@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\PrizeProducts */
 /* @var $form yii\widgets\ActiveForm */
@@ -20,8 +20,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'num')->textInput()->label('数量') ?>
 
-    <?= $form->field($model, 'prize_category_id')->textInput()->label('商品分类') ?>
-
+    <?= $form->field($model, 'prize_category_id')->textInput()->label('商品分类')->dropDownList((ArrayHelper::map($model->getAssortments(),'id', 'name')),
+        ['prompt'=>'-选择商品所属分类 -']) ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '添加' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

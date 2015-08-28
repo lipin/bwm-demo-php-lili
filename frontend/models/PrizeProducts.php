@@ -60,4 +60,9 @@ class PrizeProducts extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PrizeCategories::className(), ['id' => 'prize_category_id']);
     }
+    public function getAssortments()
+    {
+       $categories = PrizeCategories::find()->asArray()->all();
+        return $categories;
+    }
 }
