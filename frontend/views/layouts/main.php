@@ -39,7 +39,9 @@ AppAsset::register($this);
         [
             'label' => '商品',
             'items' => [
-                ['label' => '添加商品', 'url' => ['/prize-products/create']],
+                ['label' => '商品列表', 'url' => ['/prize-products/']],
+                ['label' => '商品中奖概率', 'url' => ['/prize-categories/']],
+                ['label' => '中奖纪录', 'url' => ['/prize-records/']],
             ],
         ],
         ['label' => '关于', 'url' => ['/site/about']],
