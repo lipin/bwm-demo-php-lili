@@ -36,6 +36,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => '首页', 'url' => ['/site/index']],
+        ['label' => '抽奖', 'url' => ['/draw/index']],
         [
             'label' => '商品',
             'items' => [
