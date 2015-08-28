@@ -56,4 +56,8 @@ class PrizeProducts extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+    public function getCategory()
+    {
+        return $this->hasOne(PrizeCategories::className(), ['id' => 'prize_category_id']);
+    }
 }

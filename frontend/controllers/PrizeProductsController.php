@@ -48,8 +48,10 @@ class PrizeProductsController extends Controller
      */
     public function actionView($id)
     {
+        $product =  $this->findModel($id);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $product,
+            'category'=>$product->category
         ]);
     }
 
