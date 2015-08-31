@@ -1,0 +1,36 @@
+
+.demo{width:100%; margin:40px 0 60px; text-align:center;}
+.demo p{height:auto;text-align: left;}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
+.purple{
+    background-color: purple;
+}
+.olive{
+    background-color: olive;
+}
+.brown{
+    background-color: brown;
+}
+#prize{margin:10px auto;padding-left: 5px;}
+#prize li{float:left; width:32%; height:120px; line-height:120px; margin:1px; font-size:48px; text-align:center; color:#fff; cursor:pointer}
+#footer {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    padding: 4px 0 4px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    color: #999;
+    margin:0px;
+    margin-top: 20px;
+    font-family: Arial, 'Microsoft YaHei';
+}
+#viewother,#repeat{height:40px; line-height:40px; text-align:center; font-size:16px; display:none}
