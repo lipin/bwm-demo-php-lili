@@ -4,6 +4,8 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use app\models\PrizeProducts;
+use app\models\PrizeCategories;
 
 /**
  * Draw controller
@@ -30,21 +32,13 @@ class DrawController extends Controller
         return $this->render('index');
     }
     public function actionStart (){
-        $prize_arr = array(
-            '0' => array('id'=>1,'prize'=>'iPhone 6plus','v'=>1),
-            '1' => array('id'=>2,'prize'=>'iPadMini 3','v'=>5),
-            '2' => array('id'=>3,'prize'=>'韩国城商品 吕 洗发水','v'=>10),
-            '3' => array('id'=>4,'prize'=>'韩国城保湿面膜','v'=>12),
-            '4' => array('id'=>5,'prize'=>'绑钻','v'=>22),
-            '5' => array('id'=>6,'prize'=>'下次没准就能中哦','v'=>50),
-        );
-    //  A、iPhone 6plus 一台，1%中奖率。
-    //	B、iPadMini 3 二台，3%中奖率
-    //	C、韩国城商品 吕 洗发水 50套，10%中奖率。
-    //	D、韩国城保湿面膜 300 盒，30%中奖率。
-    //	E、绑钻 1000份，每份 10绑钻 ≈ 0.1元，56%中奖率。
-    //	F、其他为未抽中奖品。
 
+        $prizes = PrizeProducts::find()->select(['id', 'name','prize_category_id'])->all();
+        foreach($prizes as $k =>$v){
+            $prize_arr[$k]['id'] = $v->id;
+            $prize_arr[$k]['prize'] = $v->name;
+            $prize_arr[$k]['v'] = PrizeCategories::findOne($v->prize_category_id)->probability;
+        }
         foreach ($prize_arr as $key => $val) {
             $arr[$val['id']] = $val['v'];
         }

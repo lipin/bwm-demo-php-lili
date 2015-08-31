@@ -26,7 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+            [
+                'attribute'=>'name',
+                'label'=>'名称',
+            ],
             'content:ntext',
             'price',
             'num',
@@ -34,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'header' => '操作'],
         ],
     ]); ?>
 
