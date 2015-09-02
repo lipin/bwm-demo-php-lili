@@ -33,10 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'名称',
                 'value' => 'product.name',
             ],
-            'created_at',
+            [
+                'attribute'=> 'created_at',
+                'label'=>'创建时间',
+                'format'=>['date', 'php:Y-m-d  H:i:s']
+            ],
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn','header'=>"操作"],
         ],
     ]); ?>
 
