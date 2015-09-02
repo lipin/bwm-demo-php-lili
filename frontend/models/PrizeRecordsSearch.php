@@ -40,7 +40,7 @@ class PrizeRecordsSearch extends PrizeRecords
      */
     public function search($params)
     {
-        $query = PrizeRecords::find();
+        $query = PrizeRecords::find()->with('product');
 
         // add conditions that should always apply here
 

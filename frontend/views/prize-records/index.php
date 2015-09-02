@@ -28,7 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'user_id',
             'number',
-            'prize_product_id',
+            [
+                'attribute'=>'prize_product_id',
+                'label'=>'名称',
+                'value' => 'product.name',
+            ],
             'created_at',
             // 'updated_at',
 
