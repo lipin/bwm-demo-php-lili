@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\PrizeRecords;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -45,6 +46,19 @@ class DrawController extends Controller
         $rid = $this->get_rand($arr); //根据概率获取奖项id
 
         $res['yes'] = $prize_arr[$rid-1]['prize']; //中奖项
+        //中奖奖记录
+        if($rid != count($prize_arr)) {
+            $prize_record = new PrizeRecords();
+            $prize_record->prize_product_id = $rid;
+            $prize_record->user_id = 1;
+            $prize_record->created_at = time();
+            $prize_record->updated_at = time();
+            $prize_record->save();
+        }
+//        $prize_record =  PrizeProducts::find()->where(['prize_category_id'=>$rid])->one()->name;
+//        if($prize_num <= 0){
+//
+//        }
         unset($prize_arr[$rid-1]); //将中奖项从数组中剔除，剩下未中奖项
         shuffle($prize_arr); //打乱数组顺序
         for($i=0;$i<count($prize_arr);$i++){
@@ -59,7 +73,7 @@ class DrawController extends Controller
         $proSum = array_sum($proArr);
         //概率数组循环
         foreach ($proArr as $key => $proCur) {
-            $randNum = mt_rand(1, $proSum);
+            $randNum = mt_rand(0, $proSum);
             if ($randNum <= $proCur) {
                 $result = $key;
                 break;

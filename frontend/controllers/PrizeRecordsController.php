@@ -50,6 +50,7 @@ class PrizeRecordsController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'product'=>$this->findModel($id)->product,
         ]);
     }
 
