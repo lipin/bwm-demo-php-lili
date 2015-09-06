@@ -1,54 +1,34 @@
-Yii 2 Advanced Project Template
-===============================
+抽奖Demo开发文档
+==========
+核心功能 
+----
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
-
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
-
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
-
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
-
-DIRECTORY STRUCTURE
+1.商品管理，商品分类管理，中奖记录。
 -------------------
 
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-tests                    contains various tests for the advanced application
-    codeception/         contains tests developed with Codeception PHP Testing Framework
-```
+
+> 增删改查 商品，添加商品分类，设置奖品概率，当商品被抽中时记录中奖商品。
+
+2.抽奖流程
+------
+
+> 抽奖的实现流程：前端页面提供6个方块，用数字1-6依次表示6个不同的方块，当抽奖者点击6个方块中的某一块时，方块翻转到背面，显示抽奖中奖信息。
+
+
+3.流程
+===
+
+>  1.首先创建商品分类，添加分类商品的中奖概率。
+ 2.添加商品，并设置该商品所属类别（设置商品的中奖概率）。
+ 3.抽奖（上面抽奖流程）。
+ 4.当商品被抽中时记录中奖商品(没有中奖的商品暂时没有做记录)。
+
+4.注意事项
+------
+> 1.商品分类设置中奖概率，所有添加的商品概率的和为抽奖概率基数。
+基数越大越能体现概率的准确性。假如总和为100，那么平板电脑对应的中奖概率是1，则中奖概率为1%，如果总和是10000，那中奖概率就是万分之一了；
+2.添加了时间开关。为保证大奖靠后被抽出，设置大奖出现的时间。开出大奖的时间为活动结束日期前一天，则开出大奖，否则将给出未中奖。
+
+5.其他
+----
+> 当点击前端  翻开其他，获取抽奖时保存的未抽中的奖项数据，并将其转化为数组，翻转5个方块，将奖品信息显示在对应的方块中。

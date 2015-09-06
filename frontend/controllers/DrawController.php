@@ -43,7 +43,15 @@ class DrawController extends Controller
         foreach ($prize_arr as $key => $val) {
             $arr[$val['id']] = $val['v'];
         }
+        $time = strtotime('2015-09-09');
+        $start_time =strtotime(date('Y-m-d', time()));
+        $date = $time -$start_time;
+
         $rid = $this->get_rand($arr); //根据概率获取奖项id
+        //控制大奖出现时间范围
+        if($date != 86400 && $rid == 1){
+            $rid = 6;
+        }
 
         $res['yes'] = $prize_arr[$rid-1]['prize']; //中奖项
         //中奖奖记录
