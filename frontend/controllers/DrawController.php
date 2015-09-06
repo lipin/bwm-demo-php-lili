@@ -63,10 +63,7 @@ class DrawController extends Controller
             $prize_record->updated_at = time();
             $prize_record->save();
         }
-//        $prize_record =  PrizeProducts::find()->where(['prize_category_id'=>$rid])->one()->name;
-//        if($prize_num <= 0){
-//
-//        }
+
         unset($prize_arr[$rid-1]); //将中奖项从数组中剔除，剩下未中奖项
         shuffle($prize_arr); //打乱数组顺序
         for($i=0;$i<count($prize_arr);$i++){
