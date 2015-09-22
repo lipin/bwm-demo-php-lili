@@ -16,14 +16,13 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-#/vendor
-
+/vendor
+/backend
 # composer itself is not needed
 composer.phar
 
 # Mac DS_Store Files
 .DS_Store
-/backend
 # phpunit itself is not needed
 phpunit.phar
 # local phpunit config
