@@ -23,6 +23,7 @@ composer.phar
 
 # Mac DS_Store Files
 .DS_Store
+/backend/*
 # phpunit itself is not needed
 phpunit.phar
 # local phpunit config
